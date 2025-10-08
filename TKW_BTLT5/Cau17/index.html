@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi Nhị phân sang Thập phân</title>
+</head>
+<body>
+
+    <h2>Chuyển số nhị phân thành số thập phân</h2>
+    <p>Nhập một số nhị phân (ví dụ: 11011011):</p>
+    <input type="text" id="binaryInput" value="11011011">
+    <button onclick="convertBinaryToDecimal()">Chuyển đổi</button>
+    
+    <h3>Kết quả:</h3>
+    <p id="result">Đây là nơi kết quả sẽ xuất hiện.</p>
+
+    <script>
+        function convertBinaryToDecimal() {
+            // Lấy chuỗi nhị phân từ ô input
+            const binaryString = document.getElementById('binaryInput').value;
+            
+            // Khởi tạo giá trị thập phân ban đầu là 0
+            var decimalValue = 0;
+            
+            // Dao ngược chuỗi nhị phân để duyệt
+            // split: tách chuỗi thành từng kí tự
+            // reverse: đảo ngược các kí tự trong mảng
+            // join: gộp lại thành chuỗi
+
+            const reversedBinary = binaryString.split('').reverse().join('');
+
+            // Dùng vòng lặp để duyệt qua từng ký tự (bit)
+            for (var i = 0; i < reversedBinary.length; i++) {
+                // Nếu bit là '1'
+                if (reversedBinary[i] === '1') {
+                    decimalValue += Math.pow(2, i);
+                }
+            }
+
+            // Lấy vị trí để xuất kết quả
+            const resultElement = document.getElementById('result');
+            // Hiển thị kết quả
+            resultElement.innerHTML = `Số nhị phân <b>${binaryString}</b><sub>2</sub> tương đương với số thập phân <b>${decimalValue}</b><sub>10</sub>.`;
+        }
+    </script>
+
+</body>
+</html>

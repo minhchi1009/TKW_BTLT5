@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính toán Lũy thừa</title>
+</head>
+<body>
+  <div class="container" align="center">
+    <h1>Kết quả phép tính bⁿ</h1>    
+    <h2 id="ketqua"></h2>
+  </div>
+
+  <script>
+    function power(b, n) {
+      return b ** n;
+    }
+    // Thực hiện phép tính
+    var base = 5; 
+    var exponent = 3; // Số mũ
+    var result = power(base, exponent);
+    
+    var setResult = document.getElementById('ketqua');
+    setResult.textContent = `${base}^${exponent} = ${result}`;
+
+  </script>
+
+</body>
+</html>

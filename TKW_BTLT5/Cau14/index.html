@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Student's Information</title>
+    </head>
+    <body>
+        <h1>Students</h1>
+        <p id="ketqua"></p>
+        <script>
+            var Student = {
+                Name: "Minh Chis",
+                NumberID: 11,
+                Gender: "Nam"
+            };
+
+            var setResult = document.getElementById('ketqua');
+            setResult.textContent = `Ten: ${Student.Name}, ID: ${Student.NumberID},Gender: ${Student.Gender}`;
+            console.log(Student);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh giai thua</title>
+</head>
+
+<body>
+    <h1>Tinh giai thua</h1>
+    <p>Nhap so bac n cua giai thua(VD: 5)</p>
+    <input type="number" id="numberInput" value="5" min="0">
+    <button onclick="calculate()">Tính toán</button>
+    <h2>Ket qua: </h2>
+    <p id="result"></p>
+
+    <script>
+        function calculate(){
+            const n = document.getElementById('numberInput').value;
+            let num = Number(n);
+            
+            // Dam bao la so duong
+            num = Math.abs(num);
+            
+            // đảm bảo là số 
+            if(isNaN(num)){
+                let result = document.getElementById('result');
+                result.innerHTML = 'Day khong phai la so nguyen';
+                return;
+            }
+            // Khi giai thừa bằng 0
+            if(num === 0){
+                let result = document.getElementById('result');
+                result.innerHTML = `Giai thừa của <b>${num}</b> là: <b>1</b>`;
+                return;
+            }
+            // Tính giai thừa
+            let factorial = 1n; 
+            for (let i = 2; i <= num; i++) {
+                factorial *= BigInt(i); 
+            }
+
+            
+            let result = document.getElementById('result');
+            result.innerHTML = `Giai thừa của <b>${num}</b> (tức là ${num}!) là: <b>${factorial}</b>`;
+        }
+    </script>
+</body>
+</html>

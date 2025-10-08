@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy Tính Lãi Suất Đơn</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <h2>Máy tính lãi suất đơn giản</h2>
+    // placeholder: dùng để tạo 1 gợi ý sẽ tự động mất khi người dùng nhập
+    <label for="principal">Nhập số tiền gốc (VND):</label>
+    <input type="number" id="principal" placeholder="Ví dụ: 10000000" value="10000000">
+
+    <label for="rate">Nhập lãi suất hàng năm (%):</label>
+    <input type="number" id="rate" placeholder="Ví dụ: 5" value="5">
+
+    <label for="years">Nhập số năm đầu tư:</label>
+    <input type="number" id="years" placeholder="Ví dụ: 3" value="3">
+
+    <button onclick="calculateSimpleInterest()">Tính toán</button>
+    
+    <div id="result"></div>
+
+    <script>
+        function calculateSimpleInterest() {
+            // 1. Lấy dữ liệu từ các ô input
+            // Let biển chỉ hoạt động trong{}
+            let principal = parseFloat(document.getElementById('principal').value);
+            let rate = parseFloat(document.getElementById('rate').value);
+            let years = parseFloat(document.getElementById('years').value);
+
+            // 2. Kiểm tra dữ liệu đầu vào
+            if (isNaN(principal) || isNaN(rate) || isNaN(years) || principal < 0 || rate < 0 || years < 0) {
+                document.getElementById('result').innerText = "Vui lòng nhập các giá trị hợp lệ (số dương).";
+                return;
+            }
+
+            // 3. Chuyển đổi lãi suất từ % sang dạng thập phân
+            const decimalRate = rate / 100;
+
+            // 4. Áp dụng công thức tính lãi đơn: A = P(1 + rt)
+            const totalAmount = principal * (1 + decimalRate * years);
+
+            // 5. Làm tròn đến 2 chữ số thập phân
+            // math.round dùng để làm tròn chữ số thập phân trong ()
+            const roundedAmount = Math.round(totalAmount * 100) / 100;
+
+            // 6. Hiển thị kết quả
+            const result = document.getElementById('result');
+            /* toLocaleString('vi-VN'): là một phương thức của kiểu Number 
+            dùng để chuyển đổi một số thành một chuỗi theo các quy ước về ngôn ngữ và vùng miền cụ thể.*/
+            result.innerHTML = `Tổng số tiền bạn nhận được sau <b>${years}</b> năm là: <br><b>${roundedAmount.toLocaleString('vi-VN')} VND</b>`;
+        }
+    </script>
+
+</body>
+</html>

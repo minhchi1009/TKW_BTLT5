@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>User</title>
+    </head>
+    <body>
+        <h1>User</h1>
+        <p><b>Thông tin ban đầu:</b> <span id="ketqua_bandau"></span></p>
+        <p><b>Thông tin sau khi cập nhật:</b> <span id="ketqua_capnhat"></span></p>
+
+        <script>
+            var User = {
+                Name: "Max",
+                Age: 20
+            };
+
+            // 1. Hiển thị thông tin ban đầu
+            var setResult_bandau = document.getElementById('ketqua_bandau');
+            setResult_bandau.textContent = `Ten: ${User.Name}, Tuoi: ${User.Age}`;
+
+            // 2. Thêm thuộc tính mới và cập nhật tuổi
+            User.Surname = "Lee"; 
+            User.Age = 30;         
+
+            // 3. Hiển thị thông tin sau khi đã cập nhật
+            var setResult_capnhat = document.getElementById('ketqua_capnhat');
+            setResult_capnhat.textContent = `Ten: ${User.Name}, Ho: ${User.Surname}, Tuoi: ${User.Age}`;
+            
+            // In ra console để kiểm tra
+            console.log("Đối tượng User sau khi cập nhật:", User);
+        </script>
+    </body>
+</html>

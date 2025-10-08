@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Liệt kê số nguyên</title>
+</head>
+<body>
+    <div class="container" align="center">
+        <h1>Liệt kê số nguyên tố</h1>
+        <p id="ketqua"></p>
+    </div>
+    <script>
+        function isPrime(num) {
+            // Số nguyên tố phải lớn hơn 1
+            if (num <= 1) {
+                return false;
+            }
+            for (var i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        var n = 30;
+        var primeNumbers = [];
+        for (var i = 2; i < n; i++) {
+            if (isPrime(i)) {
+                primeNumbers.push(i);
+            }
+        }
+
+        var setResult = document.getElementById('ketqua');
+        setResult.textContent = `Các số nguyên tố nhỏ hơn ${n} là: ${primeNumbers.join()}`;    
+    </script>
+</body>
+</html>

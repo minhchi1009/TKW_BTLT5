@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Hinh tru</title>
+    </head>
+    <body>
+        <h1>Hinh tru</h1>
+        <p><b>Thông tin ban đầu:</b> <span id="ketqua_bandau"></span></p>
+        <p><b>Thông tin sau khi cập nhật:</b> <span id="ketqua_capnhat"></span></p>
+
+        <script>
+            var HinhTru = {
+                radius: 10,
+                height: 15
+            };
+            // tinh the tich
+            const theTich = Math.PI * Math.pow(HinhTru.radius, 2) * HinhTru.height;
+            var setResult_bandau = document.getElementById('ketqua_bandau');
+            setResult_bandau.textContent = `Bán kính: ${HinhTru.radius}, Chiều cao: ${HinhTru.height}, Thể tích: ${theTich.toFixed(2)}`;
+
+            HinhTru.height = 30;         
+
+            // Tính diện tích toàn phần
+            const dienTichToanPhan = 2 * Math.PI * HinhTru.radius * (HinhTru.radius + HinhTru.height);
+            var setResult_capnhat = document.getElementById('ketqua_capnhat');
+            setResult_capnhat.textContent = `Bán kính: ${HinhTru.radius}, Chiều cao: ${HinhTru.height}, Diện tích toàn phần: ${dienTichToanPhan.toFixed(2)}`;
+        </script>
+    </body>
+</html>

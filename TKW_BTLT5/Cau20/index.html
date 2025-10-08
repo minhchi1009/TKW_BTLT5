@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Time</title>
+    </head>
+    <body>
+        <script>
+            const now = new Date();
+            
+            const date = now.getDay();
+            const day = now.getDate();
+            const month = now.getMonth()+1; // getMonth return (0->11)
+            const year = now.getFullYear();
+
+            /* Thêm string và dùng padStart để hiển thị theo chuẩn HH:MM:SS
+               String chuyển số sang dạng chuỗi
+               padStart đảm bảo chuỗi có 2 kí tự nếu chỉ có 1 kí tự thì thêm 0 vào*/
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            const result = `Thứ: ${date} Ngày: ${day}/${month}/${year} Giờ: ${hours}:${minutes}:${seconds}`; 
+            alert(result);
+        </script>
+    </body>
+</html>
